@@ -1,3 +1,5 @@
+// SCOPE - with var, let, const, and functions
+
 let globalVar = "I am a GLOBAL variable!"
 const anotherGlobal = "I am another global variable!"
 var localVarVarVariable = "I am a var global variable!"
@@ -51,7 +53,52 @@ function testLet() {
 }
 testLet()
 
-const PI = 3.14159;
+let PI = 3.14159;
 console.log("PI", PI)
 PI = 3.14; // Uncaught TypeError: Assignment to constant variable.
 console.log("PI again", PI)
+
+// HOISTING
+var hoistedVar;
+console.log("hoistedVar", hoistedVar)
+hoistedVar = "I am hoisted!"
+console.log("hoistedVar", hoistedVar)
+
+let hoistedLet;
+console.log("hoistedLet", hoistedLet)
+hoistedLet = "I am hoisted as a let!"
+console.log("hoistedLet", hoistedLet)
+
+// console.log("hoistedConst", hoistedConst)
+hoistedConst = "I am hoisted as a const!"
+console.log("hoistedConst", hoistedConst)
+
+// function hoisting
+hoistedFunction()
+
+function hoistedFunction() {
+    console.log("I am a hoisted function console log expression!")
+}
+
+// DOES NOT APPLY TO FUNCTIONAL EXPRESSIONS
+// hoistedFunctionExpression()
+
+var hoistedFunctionExpression = function () {
+    console.log("I am a hoisted function expression!")
+}
+
+// THE BEST example
+function cleanCodeExample() {
+    let myVar = "declare it at the top"
+    console.log("cleanCodeExample myVar", myVar)
+}
+
+cleanCodeExample()
+
+// functional expression - which is a NO NO on HOISTING - it will not automatically work for you!
+anotherHoistedFunction()
+
+let anotherHoistedFunction = function () {
+    console.log("I am clean code hoisted function - the very best!")
+}
+
